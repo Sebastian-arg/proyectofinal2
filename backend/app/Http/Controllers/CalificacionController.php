@@ -5,13 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Calificacion;
 use Illuminate\Http\Request;
 
-/**
- * @OA\SecurityScheme(
- *      securityScheme="bearerAuth",
- *      type="http",
- *      scheme="bearer"
- * )
- */
 class CalificacionController extends Controller
 {
     /**

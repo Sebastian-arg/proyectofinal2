@@ -5,13 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Cobro;
 use Illuminate\Http\Request;
 
-/**
- * @OA\SecurityScheme(
- *      securityScheme="bearerAuth",
- *      type="http",
- *      scheme="bearer"
- * )
- */
 class CobroController extends Controller
 {
     /**
