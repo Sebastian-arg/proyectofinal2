@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
+/**
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      type="http",
+ *      scheme="bearer"
+ * )
+ */
 class CursoController extends Controller
 {
     /**
@@ -12,6 +19,7 @@ class CursoController extends Controller
      *     path="/api/cursos",
      *     summary="Mostrar todos los cursos",
      *     tags={"Cursos"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Muestra todos los cursos.",
@@ -32,6 +40,7 @@ class CursoController extends Controller
      *     path="/api/cursos",
      *     summary="Crear un nuevo curso",
      *     tags={"Cursos"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(ref="#/components/schemas/Curso")
@@ -71,6 +80,7 @@ class CursoController extends Controller
      *     path="/api/cursos/{id}",
      *     summary="Mostrar un curso específico",
      *     tags={"Cursos"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -98,6 +108,7 @@ class CursoController extends Controller
      *     path="/api/cursos/{id}",
      *     summary="Actualizar un curso existente",
      *     tags={"Cursos"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -147,6 +158,7 @@ class CursoController extends Controller
      *     path="/api/cursos/{id}",
      *     summary="Eliminar un curso existente",
      *     tags={"Cursos"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",

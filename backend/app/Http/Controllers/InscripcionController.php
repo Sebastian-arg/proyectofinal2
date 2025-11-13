@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Inscripcion;
 use Illuminate\Http\Request;
 
+/**
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      type="http",
+ *      scheme="bearer"
+ * )
+ */
 class InscripcionController extends Controller
 {
     /**
@@ -12,6 +19,7 @@ class InscripcionController extends Controller
      *     path="/api/inscripciones",
      *     summary="Mostrar todas las inscripciones",
      *     tags={"Inscripciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Muestra todas las inscripciones.",
@@ -32,6 +40,7 @@ class InscripcionController extends Controller
      *     path="/api/inscripciones",
      *     summary="Crear una nueva inscripción",
      *     tags={"Inscripciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(ref="#/components/schemas/Inscripcion")
@@ -66,6 +75,7 @@ class InscripcionController extends Controller
      *     path="/api/inscripciones/{id}",
      *     summary="Mostrar una inscripción específica",
      *     tags={"Inscripciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -93,6 +103,7 @@ class InscripcionController extends Controller
      *     path="/api/inscripciones/{id}",
      *     summary="Actualizar una inscripción existente",
      *     tags={"Inscripciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -137,6 +148,7 @@ class InscripcionController extends Controller
      *     path="/api/inscripciones/{id}",
      *     summary="Eliminar una inscripción existente",
      *     tags={"Inscripciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",

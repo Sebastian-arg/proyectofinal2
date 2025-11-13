@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Cobro;
 use Illuminate\Http\Request;
 
+/**
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      type="http",
+ *      scheme="bearer"
+ * )
+ */
 class CobroController extends Controller
 {
     /**
@@ -12,6 +19,7 @@ class CobroController extends Controller
      *     path="/api/cobros",
      *     summary="Mostrar todos los cobros",
      *     tags={"Cobros"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Muestra todos los cobros.",
@@ -32,6 +40,7 @@ class CobroController extends Controller
      *     path="/api/cobros",
      *     summary="Crear un nuevo cobro",
      *     tags={"Cobros"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(ref="#/components/schemas/Cobro")
@@ -67,6 +76,7 @@ class CobroController extends Controller
      *     path="/api/cobros/{id}",
      *     summary="Mostrar un cobro específico",
      *     tags={"Cobros"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -94,6 +104,7 @@ class CobroController extends Controller
      *     path="/api/cobros/{id}",
      *     summary="Actualizar un cobro existente",
      *     tags={"Cobros"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -139,6 +150,7 @@ class CobroController extends Controller
      *     path="/api/cobros/{id}",
      *     summary="Eliminar un cobro existente",
      *     tags={"Cobros"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",

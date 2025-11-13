@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Calificacion;
 use Illuminate\Http\Request;
 
+/**
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      type="http",
+ *      scheme="bearer"
+ * )
+ */
 class CalificacionController extends Controller
 {
     /**
@@ -12,6 +19,7 @@ class CalificacionController extends Controller
      *     path="/api/calificaciones",
      *     summary="Mostrar todas las calificaciones",
      *     tags={"Calificaciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Muestra todas las calificaciones.",
@@ -32,6 +40,7 @@ class CalificacionController extends Controller
      *     path="/api/calificaciones",
      *     summary="Crear una nueva calificación",
      *     tags={"Calificaciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(ref="#/components/schemas/Calificacion")
@@ -66,6 +75,7 @@ class CalificacionController extends Controller
      *     path="/api/calificaciones/{id}",
      *     summary="Mostrar una calificación específica",
      *     tags={"Calificaciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -93,6 +103,7 @@ class CalificacionController extends Controller
      *     path="/api/calificaciones/{id}",
      *     summary="Actualizar una calificación existente",
      *     tags={"Calificaciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -137,6 +148,7 @@ class CalificacionController extends Controller
      *     path="/api/calificaciones/{id}",
      *     summary="Eliminar una calificación existente",
      *     tags={"Calificaciones"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",

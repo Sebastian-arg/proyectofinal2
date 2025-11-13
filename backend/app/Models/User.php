@@ -6,17 +6,59 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @OA\Schema(
+ *     title="User",
+ *     description="User model",
+ *     @OA\Property(
+ *         property="id",
+ *         type="integer",
+ *         description="User ID"
+ *     ),
+ *     @OA\Property(
+ *         property="name",
+ *         type="string",
+ *         description="User name"
+ *     ),
+ *     @OA\Property(
+ *         property="email",
+ *         type="string",
+ *         format="email",
+ *         description="User email"
+ *     ),
+ *     @OA\Property(
+ *         property="created_at",
+ *         type="string",
+ *         format="date-time",
+ *         description="Creation timestamp"
+ *     ),
+ *     @OA\Property(
+ *         property="updated_at",
+ *         type="string",
+ *         format="date-time",
+ *         description="Last update timestamp"
+ *     )
+ * )
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      type="http",
+ *      scheme="bearer",
+ *      bearerFormat="JWT",
+ *      in="header"
+ * )
+ */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'usuarios';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +66,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nombre_completo',
+        'name',
         'email',
         'password',
         'rol',
