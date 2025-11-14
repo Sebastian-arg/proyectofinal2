@@ -1,0 +1,904 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Inversiones El Tío",
+        "description": "Documentación de la API para el sistema de gestión de cursos y finanzas.",
+        "contact": {
+            "email": "admin@inversioneseltio.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/calificaciones": {
+            "get": {
+                "tags": [
+                    "Calificaciones"
+                ],
+                "summary": "Mostrar todas las calificaciones",
+                "operationId": "7f3669d923765e3b30472d9db66c2db9",
+                "responses": {
+                    "200": {
+                        "description": "Muestra todas las calificaciones.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Calificacion"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Calificaciones"
+                ],
+                "summary": "Crear una nueva calificación",
+                "operationId": "e79824e5166229b9bb9444656ad9871c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Calificacion"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Calificación creada exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Calificacion"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación."
+                    }
+                }
+            }
+        },
+        "/api/calificaciones/{id}": {
+            "get": {
+                "tags": [
+                    "Calificaciones"
+                ],
+                "summary": "Mostrar una calificación específica",
+                "operationId": "1195fad51c32c3515d9f649371430663",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Muestra la calificación especificada.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Calificacion"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Calificación no encontrada."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Calificaciones"
+                ],
+                "summary": "Actualizar una calificación existente",
+                "operationId": "a71668e5dee1a48b66a2d06bf12f681f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Calificacion"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Calificación actualizada exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Calificacion"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Calificación no encontrada."
+                    },
+                    "422": {
+                        "description": "Error de validación."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Calificaciones"
+                ],
+                "summary": "Eliminar una calificación existente",
+                "operationId": "9fb0e28827fd2e7b84a926c5f8c08e30",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Calificación eliminada exitosamente."
+                    },
+                    "404": {
+                        "description": "Calificación no encontrada."
+                    }
+                }
+            }
+        },
+        "/api/cobros": {
+            "get": {
+                "tags": [
+                    "Cobros"
+                ],
+                "summary": "Mostrar todos los cobros",
+                "operationId": "5bd489fcf0d9f3ba5eb64187bb6fe237",
+                "responses": {
+                    "200": {
+                        "description": "Muestra todos los cobros.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cobro"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cobros"
+                ],
+                "summary": "Crear un nuevo cobro",
+                "operationId": "6f8fe42bd8de7c284c730f54d9a78e16",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cobro"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cobro creado exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cobro"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación."
+                    }
+                }
+            }
+        },
+        "/api/cobros/{id}": {
+            "get": {
+                "tags": [
+                    "Cobros"
+                ],
+                "summary": "Mostrar un cobro específico",
+                "operationId": "4e7d8f28d3f2695d946ea5db1d004f70",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Muestra el cobro especificado.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cobro"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cobro no encontrado."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Cobros"
+                ],
+                "summary": "Actualizar un cobro existente",
+                "operationId": "b19801140a27cf82d4426aac212d2f61",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cobro"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cobro actualizado exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cobro"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cobro no encontrado."
+                    },
+                    "422": {
+                        "description": "Error de validación."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cobros"
+                ],
+                "summary": "Eliminar un cobro existente",
+                "operationId": "6d45f861d85bbb8fe6f924c003cfe3f8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Cobro eliminado exitosamente."
+                    },
+                    "404": {
+                        "description": "Cobro no encontrado."
+                    }
+                }
+            }
+        },
+        "/api/cursos": {
+            "get": {
+                "tags": [
+                    "Cursos"
+                ],
+                "summary": "Mostrar todos los cursos",
+                "operationId": "ce4902ce36ce58b9ed475eabcbf2dd16",
+                "responses": {
+                    "200": {
+                        "description": "Muestra todos los cursos.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Curso"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cursos"
+                ],
+                "summary": "Crear un nuevo curso",
+                "operationId": "1ca42229715ee4cbdb9820b86e639989",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Curso"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Curso creado exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Curso"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación."
+                    }
+                }
+            }
+        },
+        "/api/cursos/{id}": {
+            "get": {
+                "tags": [
+                    "Cursos"
+                ],
+                "summary": "Mostrar un curso específico",
+                "operationId": "58f560a4db42a34037d1797cb58f4c3b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Muestra el curso especificado.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Curso"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Curso no encontrado."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Cursos"
+                ],
+                "summary": "Actualizar un curso existente",
+                "operationId": "69cf34dcba8f354e6c95826a1c34004a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Curso"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Curso actualizado exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Curso"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Curso no encontrado."
+                    },
+                    "422": {
+                        "description": "Error de validación."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cursos"
+                ],
+                "summary": "Eliminar un curso existente",
+                "operationId": "6e380143cdb74c2815086d3935bff525",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Curso eliminado exitosamente."
+                    },
+                    "404": {
+                        "description": "Curso no encontrado."
+                    }
+                }
+            }
+        },
+        "/api/inscripciones": {
+            "get": {
+                "tags": [
+                    "Inscripciones"
+                ],
+                "summary": "Mostrar todas las inscripciones",
+                "operationId": "32430190a83b3e7d02fd0b80ff16641f",
+                "responses": {
+                    "200": {
+                        "description": "Muestra todas las inscripciones.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Inscripcion"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Inscripciones"
+                ],
+                "summary": "Crear una nueva inscripción",
+                "operationId": "be6247395db6a4f769454770d4c58d03",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Inscripcion"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Inscripción creada exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Inscripcion"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación."
+                    }
+                }
+            }
+        },
+        "/api/inscripciones/{id}": {
+            "get": {
+                "tags": [
+                    "Inscripciones"
+                ],
+                "summary": "Mostrar una inscripción específica",
+                "operationId": "b4666d48f6ff278358ab8b6da9e61464",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Muestra la inscripción especificada.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Inscripcion"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Inscripción no encontrada."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Inscripciones"
+                ],
+                "summary": "Actualizar una inscripción existente",
+                "operationId": "ba064dcee1714f45ba894b148f20757f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Inscripcion"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Inscripción actualizada exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Inscripcion"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Inscripción no encontrada."
+                    },
+                    "422": {
+                        "description": "Error de validación."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Inscripciones"
+                ],
+                "summary": "Eliminar una inscripción existente",
+                "operationId": "bfdeb5bc6dc0090e3f0b828f5671c055",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Inscripción eliminada exitosamente."
+                    },
+                    "404": {
+                        "description": "Inscripción no encontrada."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Calificacion": {
+                "title": "Calificacion",
+                "description": "Modelo de datos para una calificación de una inscripción.",
+                "required": [
+                    "inscripcion_id",
+                    "nota",
+                    "fecha",
+                    "tipo_evaluacion"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID único de la calificación.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "inscripcion_id": {
+                        "description": "ID de la inscripción asociada.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nota": {
+                        "description": "Nota obtenida.",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "fecha": {
+                        "description": "Fecha de la calificación.",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "tipo_evaluacion": {
+                        "description": "Tipo de evaluación (e.g., 'examen', 'trabajo práctico').",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "created_at": {
+                        "description": "Fecha y hora de creación.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Fecha y hora de la última actualización.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "Cobro": {
+                "title": "Cobro",
+                "description": "Modelo de datos para un cobro relacionado a una inscripción.",
+                "required": [
+                    "inscripcion_id",
+                    "monto",
+                    "fecha_cobro",
+                    "estado_cobro",
+                    "metodo_de_cobro"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID único del cobro.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "inscripcion_id": {
+                        "description": "ID de la inscripción asociada.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "monto": {
+                        "description": "Monto del cobro.",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "fecha_cobro": {
+                        "description": "Fecha en que se realizó el cobro.",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "estado_cobro": {
+                        "description": "Estado del cobro (e.g., 'pagado', 'pendiente', 'vencido').",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "metodo_de_cobro": {
+                        "description": "Método utilizado para el cobro (e.g., 'tarjeta', 'efectivo').",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "created_at": {
+                        "description": "Fecha y hora de creación.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Fecha y hora de la última actualización.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "Curso": {
+                "title": "Curso",
+                "description": "Modelo de datos para un curso.",
+                "required": [
+                    "docente_id",
+                    "nombre",
+                    "descripcion",
+                    "temario",
+                    "fecha_inicio",
+                    "fecha_fin",
+                    "cupo",
+                    "precio",
+                    "estado"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID único del curso.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "docente_id": {
+                        "description": "ID del docente que imparte el curso.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "description": "Nombre del curso.",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "descripcion": {
+                        "description": "Descripción detallada del curso.",
+                        "type": "string"
+                    },
+                    "temario": {
+                        "description": "Temario del curso.",
+                        "type": "string"
+                    },
+                    "fecha_inicio": {
+                        "description": "Fecha de inicio del curso.",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "fecha_fin": {
+                        "description": "Fecha de finalización del curso.",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "cupo": {
+                        "description": "Número de cupos disponibles.",
+                        "type": "integer"
+                    },
+                    "precio": {
+                        "description": "Precio del curso.",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "estado": {
+                        "description": "Estado actual del curso (e.g., 'disponible', 'lleno', 'cancelado').",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "created_at": {
+                        "description": "Fecha y hora de creación.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Fecha y hora de la última actualización.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "Inscripcion": {
+                "title": "Inscripcion",
+                "description": "Modelo de datos para una inscripción a un curso.",
+                "required": [
+                    "estudiante_id",
+                    "curso_id",
+                    "fecha_inscripcion",
+                    "estado"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID único de la inscripción.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "estudiante_id": {
+                        "description": "ID del estudiante inscrito.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "curso_id": {
+                        "description": "ID del curso al que se inscribe.",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "fecha_inscripcion": {
+                        "description": "Fecha de inscripción.",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "estado": {
+                        "description": "Estado de la inscripción (e.g., 'activa', 'cancelada').",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "created_at": {
+                        "description": "Fecha y hora de creación.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Fecha y hora de la última actualización.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Calificaciones",
+            "description": "Calificaciones"
+        },
+        {
+            "name": "Cobros",
+            "description": "Cobros"
+        },
+        {
+            "name": "Cursos",
+            "description": "Cursos"
+        },
+        {
+            "name": "Inscripciones",
+            "description": "Inscripciones"
+        }
+    ]
+}
